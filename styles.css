@@ -11,26 +11,7 @@ body {
     align-items: center;
 }
 
-/*
-#topPane{
-    border:2px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:100vw;
-    height:50vh;
-    background-color:gray;
-}
-
-#bottomPane{
-    padding-top:2.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-*/
-
-#title{
+.title{
     /*font-family: 'Anton', sans-serif;*/
     font-family: 'Slabo 27px', serif;
     font-size:170px;
@@ -66,3 +47,264 @@ body {
     height:200px;
     margin-top:35px;
 }
+
+/*Login page css*/
+#itemsContainer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100vw;
+    height:100vh;
+    padding-top:23vh;
+}
+#loginContainer{
+    display:flex;
+    flex-direction:column;
+    background-color:rgb(218, 218, 218);
+    border-radius:20px;
+    border:2px solid black;
+    width:25vw;
+    height:55vh;
+    box-shadow:4px 4px rgb(0, 0, 0);
+    align-items:center;
+    
+}
+
+#loginText{
+    font-family: 'Roboto Slab', serif;
+    font-size:50px;
+    margin-top:7vh;
+    margin-bottom:7vh;
+}
+
+input{
+    height:5%;
+    width: 70%;
+    border-radius:10px;
+    font-size:22px;
+}
+
+#email{
+    margin-bottom:3vh;
+}
+
+#password{
+    margin-bottom:8vh;
+}
+
+#submitButton{
+    font-family: 'Roboto Slab', serif;
+    font-size:23px;
+    width:9vw;
+    height:7vh;
+    border-radius:10px;
+    background-color:rgb(153, 31, 0);
+    outline:none;
+}
+
+#submitButton:hover{background-color:rgb(240, 48, 0);}
+
+/*videoCall css*/
+#topPane{
+    /*border:2px solid black;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100vw;
+    height:87vh;
+}
+
+#bottomPane{
+    display: flex;
+    flex-direction: row;
+    align-items:left;
+    width:100vw;
+    height:15vh;
+}
+
+#leftBottom{
+    display: flex;
+    flex-direction: row;
+    width:80vw;
+    height:100%;
+    background-color:rgb(197, 197, 197);
+    margin-right:10%;
+    border-top-right-radius:25px;
+}
+
+#rightBottom{
+    display: flex;
+    flex-direction: row;
+    width:15vw;
+    height:100%;
+    background-color:rgb(197, 197, 197);
+    border-top-left-radius:25px;
+    padding-left:1%;
+}
+
+#titleLogo{
+    font-size:30px;
+    text-shadow:1px 1px rgb(78, 19, 4);
+    margin-top:3.5%;
+    margin-left:1.5%;
+}
+
+#inputContainer{
+    display:flex;
+    flex-direction:column;
+    margin-top:2.5%;
+    margin-left:3%;
+}
+
+#username{
+    height:20%;
+    width:90%;
+    margin-bottom:6%;
+    font-size:20px;
+}
+#channelName{
+    height:20%;
+    width:90%;
+    font-size:20px;
+}
+#participantsText {
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    display: block;
+    margin-left:3.5vw;
+    margin-bottom: 20px;
+    margin-top:20px;
+  }
+
+  #usersContainer{
+      display:flex;
+      flex-direction:column;
+  }
+  #usersRow1{
+    display:flex;
+    flex-direction:row;
+    /*border:2px solid black;*/
+    width:30vw;
+    height:45%;
+  }
+  #usersRow2{
+    /*border:2px solid black;*/
+    width:30vw;
+    height:45%;
+  }
+
+  #micButton{
+    width:28%;
+    height:50%;
+    outline:none;
+    margin-top:13%;
+  }
+
+  #leaveButton{
+    font-family: 'Roboto Slab', serif;
+    font-size:18px;
+    width:57%;
+    height:50%;
+    margin-left:10%;
+    margin-top:13%;
+    background-color:rgb(230, 27, 0);
+    color:white;
+    border-radius:15px;
+    outline:none;
+  }
+
+  #firstVideoRow{
+    display:flex;
+    flex-direction: row;
+    /*border:2px solid black;*/
+    width:80vw;
+    height:25vh;
+    padding-top:3vh;
+}
+
+#secondVideoRow{
+    display:flex;
+    flex-direction:row;
+    /*border:2px solid black;*/
+    width:80vw;
+    height:29vh;
+}
+
+#SelfStream {
+  text-align:left;
+  justify-self:center;
+  margin-left:80px;
+  border: 2px solid rgb(153, 31, 0);
+  width: 260px;
+  height: 200px;
+  border-radius:5px;
+}
+
+#remoteStream1 {
+    text-align:left;
+    margin-right:20px;
+    width: 730px;
+    height: 200px;
+    display: inline-block;
+  }
+
+  #remoteStream2{
+    text-align:left;
+    margin-left:50px;
+    margin-right:15px;
+    width: 265px;
+    height: 200px;
+    display: inline-block;
+    padding-top:2vh;
+  }
+
+  #remoteStream3{
+    text-align:left;
+    margin-right:10px;
+    margin-left:15px;
+    width: 270px;
+    height: 200px;
+    display: inline-block;
+    padding-top:2vh;
+  }
+
+  #remoteStream4 {
+    text-align:left;
+    width: 80vw;
+    height: 26vh;
+    display: inline-block;
+    /*border:2px solid black;*/
+    padding-top:2vh;
+  }
+
+  .changeFire{
+    width:3vw;
+    background-color: rgb(197, 197, 197);
+    border:none;
+    border-radius:10px;
+}
+
+#fireplace{
+    border:none;
+    border-radius:30px;
+    width: 25vw;
+    height:28vh;
+}
+
+#fireControls{
+    margin-top:1vh;
+    /*display: inline-block;*/
+}
+
+.submitButton {
+    background: rgb(160, 32, 0);
+    color:white;
+    font-size: 1.1rem;
+    margin-top: 3%;
+    margin-left:3%;
+    border: none;
+    border-radius: 10px;
+    width:8%;
+    height:40%;
+    outline:none;
+  }
