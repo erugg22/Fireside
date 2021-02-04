@@ -145,16 +145,15 @@ let handlefail = function (err) {
 document.getElementById("micButton").onclick = function () {
   let imageName = document.getElementById("micButton").src;
 
-  if(imageName.slice(-17)==='assets/micOff.png'){
-      document.getElementById("micButton").src="assets/micOn.png";
-      globalStream.unmuteAudio();
-  }
-  else if(imageName.slice(-16)==='assets/micOn.png'){
-      document.getElementById("micButton").src="assets/micOff.png";
-      globalStream.muteAudio();
+  if(audioMuted){
+    globalStream.unmuteAudio();
+    audioMuted = false;
+    document.getElementById("micButton").src="assets/micOn.png";
   }
   else{
-      console.log("error with micButton src");
+    globalStream.muteAudio();
+    audioMuted = true;
+    document.getElementById("micButton").src="assets/micOff.png";
   }
 };
 
@@ -162,11 +161,11 @@ document.getElementById("videoButton").onclick = function(){
   if(!videoMuted){
       globalStream.muteVideo();
       videoMuted = true;
-      document.getElementById("videoButton").innerHTML = "Video on";
-  }else{
+      document.getElementById("videoButton").src = "assets/videoOff.png";
+  }else if(videoMuted){
       globalStream.unmuteVideo();
       videoMuted = false;
-      document.getElementById("videoButton").innerHTML = "Video off";
+      document.getElementById("videoButton").src = "assets/videoOn.png";
   }
 }
 
