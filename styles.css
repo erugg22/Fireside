@@ -89,7 +89,17 @@ input{
 }
 
 #password{
-    margin-bottom:8vh;
+    margin-bottom:4vh;
+}
+
+.incorrect{
+    border-color:red;
+}
+
+#suggestion{
+    font-family: 'Roboto Slab', serif;
+    font-size:18px;
+    margin-bottom:1vh;
 }
 
 #submitButton{
@@ -135,7 +145,7 @@ input{
 #rightBottom{
     display: flex;
     flex-direction: row;
-    width:15vw;
+    width:25vw;
     height:100%;
     background-color:rgb(197, 197, 197);
     border-top-left-radius:25px;
@@ -171,9 +181,9 @@ input{
     font-family: 'Roboto Slab', serif;
     font-size: 20px;
     display: block;
-    margin-left:3.5vw;
+    margin-left:1.5vw;
     margin-bottom: 20px;
-    margin-top:20px;
+    padding-top:2vh;
   }
 
   #usersContainer{
@@ -193,20 +203,48 @@ input{
     height:45%;
   }
 
+  #users1{
+    font-family: 'Roboto Slab', serif;
+    display:flex;
+    flex-direction:row;
+    font-size:20px;
+    /*border:2px solid blue;*/
+    width:100%;
+
+    padding-top:2vh;
+  }
+  #users2{
+    font-family: 'Roboto Slab', serif;
+    display:flex;
+    flex-direction:row;
+    font-size:20px;
+    /*border:2px solid blue;*/
+    width:100%;
+    height:100%;
+    padding-top:.5vh;
+    margin-left:.5vw;
+  }
   #micButton{
-    width:28%;
-    height:50%;
+    width:20%;
+    height:55%;
     outline:none;
-    margin-top:13%;
+    margin-top:8%;
   }
 
+  #videoButton{
+    width:23%;
+    height:55%;
+    outline:none;
+    margin-top:8%;
+    margin-left:5%;
+  }
   #leaveButton{
     font-family: 'Roboto Slab', serif;
     font-size:18px;
-    width:57%;
+    width:39%;
     height:50%;
-    margin-left:10%;
-    margin-top:13%;
+    margin-left:5%;
+    margin-top:9%;
     background-color:rgb(230, 27, 0);
     color:white;
     border-radius:15px;
@@ -300,11 +338,10 @@ input{
     background: rgb(160, 32, 0);
     color:white;
     font-size: 1.1rem;
-    margin-top: 3%;
+    margin-top: 2.5%;
     margin-left:3%;
-    border: none;
     border-radius: 10px;
     width:8%;
-    height:40%;
+    height:50%;
     outline:none;
   }

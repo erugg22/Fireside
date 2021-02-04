@@ -68,6 +68,7 @@
             <div id="rightBottom">
                 <!--created micOff.png and micOn.png on Procreate-->
                 <input id="micButton" type="image" src="assets/micOff.png">
+                <input id="videoButton" type="image" src="assets/videoOff.png">
                 <button id="leaveButton">Leave</button>
             </div>
         </div>
@@ -75,22 +76,6 @@
     <script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.0.0.js"></script>
     <script src="./agora-rtc.js"></script>
     <script src="fireVideo.js"></script>
-    <script>
-        
-        document.getElementById("micButton").onclick = function () {
-            let imageName = document.getElementById("micButton").src;
-
-            if(imageName.slice(-17)==='assets/micOff.png'){
-                document.getElementById("micButton").src="assets/micOn.png";
-            }
-            else if(imageName.slice(-16)==='assets/micOn.png'){
-                document.getElementById("micButton").src="assets/micOff.png";
-            }
-            else{
-                console.log("error with micButton src");
-            }
-        };
-    </script>
 </body>
 
 </html>

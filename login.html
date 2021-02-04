@@ -15,10 +15,35 @@
             <span id="loginText">Login</span>
             <input type="text" id="email" placeholder="email">
             <input type="text" id="password" placeholder="password">
-            <button id="submitButton" onclick="location.href='videoCall.html'">Let's go!</button>
+            <div id="suggestion"></div>
+            <button id="submitButton" onclick="validate()">Let's go!</button>
         </div>
 
     </div>
+    <script>
+        function validate(){
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+
+            if(email.value.match(/\S+@\S+/)){
+                email.className = "";
+                if(password.value.length >= 8){
+                    password.className = ""
+                    return location.href='videoCall.html';
+                }
+                else{
+                    password.className = "incorrect"
+                    document.getElementById("suggestion").innerHTML = "Password must have 8 characters";
+                    return "";
+                }
+            }
+            else{
+                email.className = "incorrect"
+                document.getElementById("suggestion").innerHTML = "Invalid email";
+                return "";
+            }
+        }
+    </script>
 </body>
 
 </html>

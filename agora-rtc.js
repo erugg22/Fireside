@@ -6,9 +6,38 @@ let handlefail = function (err) {
   let remoteContainer2 = document.getElementById("remoteStream2");
   let remoteContainer3 = document.getElementById("remoteStream3");
   let remoteContainer4 = document.getElementById("remoteStream4");
-  let usersContainer = document.getElementById("users1");
+  let usersContainer1 = document.getElementById("users1");
+  let usersContainer2 = document.getElementById("users2");
 
   let userCount = 1;
+  let appId = "2b855115869e43a19e120d2e08eb9734";
+  let globalStream;
+  let audioMuted = false;
+  let videoMuted = false;
+
+  let globalUsername;
+
+  let client = AgoraRTC.createClient({
+    mode: "live",
+    codec: "h264",
+  });
+
+  client.init(
+    appId,
+    () => console.log("AgoraRTC Client initialized"),
+    handlefail
+  );
+
+  function removeMyVideoStream(){
+    globalStream.stop();
+  }
+
+  function removeVideoStream(evt){
+    let stream = evt.stream;
+    stream.stop();
+    let remDiv = document.getElementById(stream.getId());
+    remDiv.parentNode.removeChild(remDiv);
+  }
 
   function addVideoStream(streamId) {
     let streamdiv = document.createElement("div");
@@ -46,10 +75,21 @@ let handlefail = function (err) {
     let newParticipant = document.createElement("div");
     newParticipant.id = participant;
     newParticipant.innerHTML = participant;
-    newParticipant.style.marginTop = "20px";
-    usersContainer.appendChild(newParticipant);
+    newParticipant.style.display = "block";
+    newParticipant.style.marginLeft = "1vw";
+    if(userCount < 4){
+      usersContainer1.appendChild(newParticipant);
+    }
+    else if(userCount >= 4){
+      usersContainer2.appendChild(newParticipant);
+    }
   }
 
+  function removeParticipant(participant) {
+    let pDiv = document.getElementById(participant);
+    usersContainer.removeChild(pDiv);
+  }
+  /*
   function RemoveVideoStream(streamId) {
     let stream = evt.stream;
     stream.stop();
@@ -58,23 +98,21 @@ let handlefail = function (err) {
   
     console.log("Remote stream is removed" + stream.getId());
   }
+  */
+
+  document.getElementById("leaveButton").onclick = function() {
+    client.leave(function() {
+      console.log("left")},
+      handlefail)
+    removeMyVideoStream();
+    removeParticipant(globalUsername);
+    //window.location.href='login.html';
+  }
   
   document.getElementById("join").onclick = function () {
     let channelName = document.getElementById("channelName").value;
     let userName = document.getElementById("username").value;
-    let appId = "2b855115869e43a19e120d2e08eb9734";
-  
-    let client = AgoraRTC.createClient({
-      mode: "live",
-      codec: "h264",
-    });
-    
-    client.init(
-      appId,
-      () => console.log("AgoraRTC Client initialized"),
-      handlefail
-    );
-  
+
     client.join(
       null,
       channelName,
@@ -90,6 +128,8 @@ let handlefail = function (err) {
         });
         console.log(`App id: ${appId}\nChannel id: ${channelName}`);
         addParticipant(userName);
+        globalStream = localStream;
+        globalUsername=userName;
       },
       handlefail
     );
@@ -106,6 +146,62 @@ let handlefail = function (err) {
       addParticipant(stream.getId());
     });
 
+    /*
     client.on("stream-removed", removeVideoStream);
     client.on("peer-leave", removeVideoStream);
+    */
+    client.on("peer-leave", function (evt) {
+      console.log("Peer has left");
+      removeVideoStream(evt);
+      removeParticipant(evt.stream.getId());
+    })
   };
+/*
+document.getElementById("video-mute").onclick = function(){
+  if(!isVidioMuted){
+      globalStream.muteVideo();
+      isVidioMuted = true;
+  }else{
+      globalStream.unmuteVideo();
+      isVidioMuted = false;
+  }
+}
+
+document.getElementById("audio-mute").onclick = function(){
+  if(!isAudioMuted){
+      globalStream.muteAudio();
+      isAudioMuted = true;
+  }else{
+      globalStream.unmuteAudio();
+      isAudioMuted = false;
+  }
+}
+*/
+document.getElementById("micButton").onclick = function () {
+  let imageName = document.getElementById("micButton").src;
+
+  if(imageName.slice(-17)==='assets/micOff.png'){
+      document.getElementById("micButton").src="assets/micOn.png";
+      globalStream.unmuteAudio();
+  }
+  else if(imageName.slice(-16)==='assets/micOn.png'){
+      document.getElementById("micButton").src="assets/micOff.png";
+      globalStream.muteAudio();
+  }
+  else{
+      console.log("error with micButton src");
+  }
+};
+
+document.getElementById("videoButton").onclick = function(){
+  if(!videoMuted){
+      globalStream.muteVideo();
+      videoMuted = true;
+      document.getElementById("videoButton").innerHTML = "Video on";
+  }else{
+      globalStream.unmuteVideo();
+      videoMuted = false;
+      document.getElementById("videoButton").innerHTML = "Video off";
+  }
+}
+
