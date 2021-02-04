@@ -48,7 +48,7 @@ let handlefail = function (err) {
     streamdiv.style.borderRadius = "5px";
     streamdiv.style.border = "2px solid rgb(153, 31, 0)";
     streamdiv.style.display = "inline-block";
-    //streamdiv.style.marginTop = "30px";
+
     userCount++;
     if(userCount < 4) {
         streamdiv.style.marginLeft = "80px";
@@ -89,16 +89,6 @@ let handlefail = function (err) {
     let pDiv = document.getElementById(participant);
     usersContainer.removeChild(pDiv);
   }
-  /*
-  function RemoveVideoStream(streamId) {
-    let stream = evt.stream;
-    stream.stop();
-    let remDiv = document.getElementById(stream.getId());
-    remDiv.parentNode.removeChild(remDiv);
-  
-    console.log("Remote stream is removed" + stream.getId());
-  }
-  */
 
   document.getElementById("leaveButton").onclick = function() {
     client.leave(function() {
@@ -106,7 +96,6 @@ let handlefail = function (err) {
       handlefail)
     removeMyVideoStream();
     removeParticipant(globalUsername);
-    //window.location.href='login.html';
   }
   
   document.getElementById("join").onclick = function () {
@@ -146,37 +135,13 @@ let handlefail = function (err) {
       addParticipant(stream.getId());
     });
 
-    /*
-    client.on("stream-removed", removeVideoStream);
-    client.on("peer-leave", removeVideoStream);
-    */
     client.on("peer-leave", function (evt) {
       console.log("Peer has left");
       removeVideoStream(evt);
       removeParticipant(evt.stream.getId());
     })
   };
-/*
-document.getElementById("video-mute").onclick = function(){
-  if(!isVidioMuted){
-      globalStream.muteVideo();
-      isVidioMuted = true;
-  }else{
-      globalStream.unmuteVideo();
-      isVidioMuted = false;
-  }
-}
 
-document.getElementById("audio-mute").onclick = function(){
-  if(!isAudioMuted){
-      globalStream.muteAudio();
-      isAudioMuted = true;
-  }else{
-      globalStream.unmuteAudio();
-      isAudioMuted = false;
-  }
-}
-*/
 document.getElementById("micButton").onclick = function () {
   let imageName = document.getElementById("micButton").src;
 

@@ -12,7 +12,6 @@ body {
 }
 
 .title{
-    /*font-family: 'Anton', sans-serif;*/
     font-family: 'Slabo 27px', serif;
     font-size:170px;
     text-shadow:4px 4px rgb(78, 19, 4);
@@ -116,7 +115,6 @@ input{
 
 /*videoCall css*/
 #topPane{
-    /*border:2px solid black;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,12 +191,10 @@ input{
   #usersRow1{
     display:flex;
     flex-direction:row;
-    /*border:2px solid black;*/
     width:30vw;
     height:45%;
   }
   #usersRow2{
-    /*border:2px solid black;*/
     width:30vw;
     height:45%;
   }
@@ -208,9 +204,7 @@ input{
     display:flex;
     flex-direction:row;
     font-size:20px;
-    /*border:2px solid blue;*/
     width:100%;
-
     padding-top:2vh;
   }
   #users2{
@@ -218,7 +212,6 @@ input{
     display:flex;
     flex-direction:row;
     font-size:20px;
-    /*border:2px solid blue;*/
     width:100%;
     height:100%;
     padding-top:.5vh;
@@ -254,7 +247,6 @@ input{
   #firstVideoRow{
     display:flex;
     flex-direction: row;
-    /*border:2px solid black;*/
     width:80vw;
     height:25vh;
     padding-top:3vh;
@@ -263,7 +255,6 @@ input{
 #secondVideoRow{
     display:flex;
     flex-direction:row;
-    /*border:2px solid black;*/
     width:80vw;
     height:29vh;
 }
@@ -311,7 +302,6 @@ input{
     width: 80vw;
     height: 26vh;
     display: inline-block;
-    /*border:2px solid black;*/
     padding-top:2vh;
   }
 
@@ -331,7 +321,6 @@ input{
 
 #fireControls{
     margin-top:1vh;
-    /*display: inline-block;*/
 }
 
 .submitButton {
