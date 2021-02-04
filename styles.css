@@ -26,6 +26,14 @@ body {
     margin-top:3%;
 }
 
+#author{
+    font-family: 'Slabo 27px', serif;
+    color:white;
+    font-size:18px;
+    margin-top:5%;
+    margin-left:1%;
+}
+
 #loginButton{
     font-family: 'Roboto Slab', serif;
     font-size:30px;
